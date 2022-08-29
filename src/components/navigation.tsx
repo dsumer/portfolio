@@ -1,12 +1,11 @@
-import { Box, Button, Flex, Link, useBreakpointValue, useColorMode } from '@chakra-ui/react';
+import { Box, Center, Divider, Flex, IconButton, useBreakpointValue, useColorMode } from '@chakra-ui/react';
 import throttle from 'lodash.throttle';
 import NextLink from 'next/link';
 import { useEffect, useState } from 'react';
 import { FiMoon, FiSun } from 'react-icons/fi/index';
+import { CustomLink } from './custom-link';
 import { LayoutWrapper } from './layout-wrapper';
 import { WavingHand } from './waving-hand';
-
-const Separator = () => <Box w="1.5px" h="25px" bg="gray.400" opacity={0.3} borderRadius="3px" />;
 
 interface Props {
   hideLogo?: boolean;
@@ -67,11 +66,23 @@ export const Navigation = ({ hideLogo }: Props) => {
           </Box>
         </NextLink>
         <Flex align="center" gap={4}>
-          <Link href="#">Articles</Link>
-          <Separator />
-          <Button variant="ghost" minW="0px" height="auto" p={2} m={-2} fontSize="20px" onClick={toggleColorMode}>
-            <Box as={colorMode === 'light' ? FiSun : FiMoon} />
-          </Button>
+          <CustomLink name="Articles" href="#">
+            Articles
+          </CustomLink>
+          <Center h="25px">
+            <Divider orientation="vertical" />
+          </Center>
+          <IconButton
+            variant="ghost"
+            minW="0px"
+            height="auto"
+            p={2}
+            m={-2}
+            fontSize="20px"
+            aria-label={`Switch to ${colorMode === 'light' ? 'dark' : 'light'} mode`}
+            icon={colorMode === 'light' ? <FiSun /> : <FiMoon />}
+            onClick={toggleColorMode}
+          />
         </Flex>
       </LayoutWrapper>
     </Box>
