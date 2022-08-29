@@ -55,7 +55,7 @@ export const Navigation = ({ hideLogo }: Props) => {
         direction="row"
         align="center"
         justify="space-between"
-        fontSize="20px"
+        fontSize={['16px', '18px', '20px']}
         fontWeight="semibold"
         mb={8}
         py={4}
