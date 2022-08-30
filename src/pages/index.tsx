@@ -18,7 +18,7 @@ const Page: NextPageWithLayout = () => {
             I love to bring my own ideas to life and strive to make a living from them.
           </Text>
         </Box>
-        <Box sx={{ '> span': { filter: 'drop-shadow(0 0 20px rgba(0,0,0,0.14))' } }}>
+        <Box sx={{ '> span': { filter: 'drop-shadow(0 0 20px rgba(0,0,0,0.14))', transform: 'translateZ(0)' } }}>
           <NextImage src={Avatar} width={200} height={200} />
         </Box>
       </Flex>
