@@ -19,7 +19,7 @@ const Page: NextPageWithLayout = () => {
           </Text>
         </Box>
         <Box sx={{ '> span': { filter: 'drop-shadow(0 0 20px rgba(0,0,0,0.14))', transform: 'translateZ(0)' } }}>
-          <NextImage src={Avatar} width={200} height={200} />
+          <NextImage loading="eager" src={Avatar} alt="Avatar of Dominik Sumer" width={200} height={200} />
         </Box>
       </Flex>
       <Divider />
