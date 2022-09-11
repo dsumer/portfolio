@@ -23,9 +23,16 @@ const Page: NextPageWithLayout = () => {
         </Box>
       </Flex>
       <Divider />
-      <Text as="h2" fontSize={['24px', '28px']}>
-        Latest Articles
-      </Text>
+      <Box>
+        <Text as="h2" fontSize={['24px', '28px']}>
+          Latest Articles
+        </Text>
+      </Box>
+      <Box>
+        <Text as="h2" fontSize={['24px', '28px']}>
+          Projects
+        </Text>
+      </Box>
     </LayoutWrapper>
   );
 };

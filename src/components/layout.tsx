@@ -1,7 +1,9 @@
+import { Box } from '@chakra-ui/react';
 import { DefaultSeo } from 'next-seo';
 import Head from 'next/head';
 import { PropsWithChildren } from 'react';
 import { websiteUrl } from '../consts/common';
+import { Footer } from './footer';
 import { Navigation } from './navigation';
 
 const title = 'Portfolio - Dominik Sumer';
@@ -33,7 +35,10 @@ export const Layout = ({ children, hideLogo }: PropsWithChildren<Props>) => {
         {/* TODO: <script async src="https://cdn.splitbee.io/sb.js" /> */}
       </Head>
       <Navigation hideLogo={hideLogo} />
-      <main>{children}</main>
+      <Box as="main" flexGrow={1} my={8}>
+        {children}
+      </Box>
+      <Footer />
     </>
   );
 };
