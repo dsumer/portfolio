@@ -32,7 +32,7 @@ export const Layout = ({ children, hideLogo }: PropsWithChildren<Props>) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" sizes="196x196" href="/images/favicon-196.png" />
         <link rel="apple-touch-icon" href="images/apple-icon-180.png" />
-        {/* TODO: <script async src="https://cdn.splitbee.io/sb.js" /> */}
+        {/* TODO: Vercel Analytics */}
       </Head>
       <Navigation hideLogo={hideLogo} />
       <Box as="main" flexGrow={1} my={8}>

@@ -65,7 +65,7 @@ export const Navigation = ({ hideLogo }: Props) => {
           </Box>
         </NextLink>
         <Flex align="center" gap={4}>
-          <CustomLink name="Articles" href="#">
+          <CustomLink name="Articles" href="/blog">
             Articles
           </CustomLink>
           <Center h="25px">

@@ -1,12 +1,22 @@
-import { Flex, Link } from '@chakra-ui/react';
+import { Divider, Flex, Link } from '@chakra-ui/react';
+import { LayoutWrapper } from './layout-wrapper';
+import { SocialIcons } from './social-icons';
 
 export function Footer() {
   return (
-    <Flex as="footer" justify="center" fontSize="sm" color="gray.500" py={3}>
-      Hire me @&nbsp;
-      <Link href="https://seriouscode.io" textDecor="underline" isExternal _hover={{ color: 'gray.800' }}>
-        seriouscode.io
-      </Link>
-    </Flex>
+    <>
+      <LayoutWrapper>
+        <Divider my={6} />
+      </LayoutWrapper>
+      <Flex as="footer" direction="column" align="center" py={3}>
+        <Flex fontSize="sm" color="gray.500">
+          I&apos;m available for hire @&nbsp;
+          <Link href="https://seriouscode.io" textDecor="underline" isExternal _hover={{ color: 'gray.800' }}>
+            seriouscode.io
+          </Link>
+        </Flex>
+        <SocialIcons mt={3} />
+      </Flex>
+    </>
   );
 }
