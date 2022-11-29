@@ -53,6 +53,7 @@ const Page: NextPageWithLayout = () => {
           </StandardLink>
         </Flex>
       </Box>
+      {/** TODO: newsletter form */}
     </LayoutWrapper>
   );
 };

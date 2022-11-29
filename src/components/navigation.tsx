@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import { FiMoon, FiSun } from 'react-icons/fi/index';
 import { CustomLink } from './custom-link';
 import { LayoutWrapper } from './layout-wrapper';
-import { WavingHand } from './waving-hand';
 
 interface Props {
   hideLogo?: boolean;
@@ -61,7 +60,7 @@ export const Navigation = ({ hideLogo }: Props) => {
       >
         <NextLink href="/">
           <Box as="a" cursor="pointer" opacity={hideLogo && !showLogo ? 0 : 1} transition="all .3s">
-            Dominik Sumer <WavingHand />
+            Dominik Sumer 👋
           </Box>
         </NextLink>
         <Flex align="center" gap={4}>

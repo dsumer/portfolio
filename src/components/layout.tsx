@@ -6,7 +6,7 @@ import { websiteUrl } from '../consts/common';
 import { Footer } from './footer';
 import { Navigation } from './navigation';
 
-const title = 'Portfolio - Dominik Sumer';
+const title = 'Dominik Sumer';
 const description = 'I love to bring my own ideas to life and strive to make a living from them.';
 
 interface Props {

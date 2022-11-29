@@ -8,14 +8,14 @@ export function Footer() {
       <LayoutWrapper>
         <Divider my={6} />
       </LayoutWrapper>
-      <Flex as="footer" direction="column" align="center" py={3}>
+      <Flex as="footer" direction="column" align="center" py={3} mb={3}>
         <Flex fontSize="sm" color="gray.500">
           I&apos;m available for hire @&nbsp;
           <Link href="https://seriouscode.io" textDecor="underline" isExternal _hover={{ color: 'gray.800' }}>
             seriouscode.io
           </Link>
         </Flex>
-        <SocialIcons mt={3} />
+        <SocialIcons mt={4} />
       </Flex>
     </>
   );
