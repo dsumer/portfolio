@@ -1,12 +1,12 @@
 // theme.js
 
 // 1. import `extendTheme` function
-import { extendTheme } from '@chakra-ui/react';
+import { extendTheme, ThemeConfig } from '@chakra-ui/react';
+import { dividerTheme } from './components/divider';
 
 // 2. Add your color mode config
-const config = {
-  initialColorMode: 'light',
-  useSystemColorMode: false,
+const config: ThemeConfig = {
+  initialColorMode: 'system',
 };
 
 // 3. extend the theme
@@ -23,5 +23,8 @@ export const theme = extendTheme({
         minH: '100vh',
       },
     },
+  },
+  components: {
+    Divider: dividerTheme,
   },
 });

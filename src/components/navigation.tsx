@@ -1,4 +1,13 @@
-import { Box, Center, Divider, Flex, IconButton, useBreakpointValue, useColorMode } from '@chakra-ui/react';
+import {
+  Box,
+  Center,
+  Divider,
+  Flex,
+  IconButton,
+  useBreakpointValue,
+  useColorMode,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import throttle from 'lodash.throttle';
 import NextLink from 'next/link';
 import { useEffect, useState } from 'react';
@@ -15,6 +24,8 @@ export const Navigation = ({ hideLogo }: Props) => {
   const [isSticky, setSticky] = useState(false);
   const [showLogo, setShowLogo] = useState(false);
   const isMobileTab = useBreakpointValue([true, true, false]);
+
+  const navBgColor = useColorModeValue('rgba(255, 255, 255, 0.7)', 'rgba(26, 32, 44, 0.8)');
 
   useEffect(() => {
     // We need to listen on scroll changes in order to detect if the Navigation is sticky
@@ -45,8 +56,9 @@ export const Navigation = ({ hideLogo }: Props) => {
       as="nav"
       zIndex="docked"
       boxShadow={isSticky ? '0px 0px 10px rgba(0,0,0,0.15)' : 'none'}
+      bg={navBgColor}
+      backdropFilter="blur(10px)"
       transition="all .3s"
-      bg="chakra-body-bg"
       position="sticky"
       top="0px"
     >
@@ -58,11 +70,9 @@ export const Navigation = ({ hideLogo }: Props) => {
         fontWeight="semibold"
         py={4}
       >
-        <NextLink href="/">
-          <Box as="a" cursor="pointer" opacity={hideLogo && !showLogo ? 0 : 1} transition="all .3s">
-            Dominik Sumer 👋
-          </Box>
-        </NextLink>
+        <Box as={NextLink} href="/" cursor="pointer" opacity={hideLogo && !showLogo ? 0 : 1} transition="all .3s">
+          Dominik Sumer 👋
+        </Box>
         <Flex align="center" gap={4}>
           <CustomLink name="Articles" href="/blog">
             Articles
