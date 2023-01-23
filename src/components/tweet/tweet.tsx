@@ -1,4 +1,4 @@
-import { Box, Flex, FlexProps, Icon, Link, LinkBox, LinkOverlay, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, FlexProps, Icon, Link, LinkBox, LinkOverlay, Text } from '@chakra-ui/react';
 import NextImage from 'next/image';
 import React from 'react';
 import { BsFillPlayFill } from 'react-icons/bs';
@@ -39,7 +39,7 @@ export const Tweet = ({ data, ...flexProps }: Props) => {
     <Flex
       direction="column"
       border="1px solid"
-      borderColor={useColorModeValue('gray.100', 'gray.700')}
+      borderColor="lightGray"
       boxShadow="sm"
       rounded="xl"
       p={5}

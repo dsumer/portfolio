@@ -24,6 +24,26 @@ export const theme = extendTheme({
       },
     },
   },
+  semanticTokens: {
+    colors: {
+      'nav-bg': {
+        _light: 'rgba(255, 255, 255, 0.7)',
+        _dark: 'rgba(26, 32, 44, 0.8)',
+      },
+      github: {
+        _light: '#171515',
+        _dark: 'gray.100',
+      },
+      lightGray: {
+        _light: 'gray.100',
+        _dark: 'gray.700',
+      },
+      darkGray: {
+        _light: 'gray.600',
+        _dark: 'gray.400',
+      },
+    },
+  },
   components: {
     Divider: dividerTheme,
   },

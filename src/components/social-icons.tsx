@@ -1,10 +1,8 @@
-import { Box, Flex, FlexProps, Link, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, FlexProps, Link } from '@chakra-ui/react';
 import { CgIndieHackers } from 'react-icons/cg';
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 export const SocialIcons = (props: FlexProps) => {
-  const githubColor = useColorModeValue('#171515', 'gray.100');
-
   return (
     <Flex align="center" gap={2} {...props}>
       <Link target="_blank" href="https://twitter.com/dominiksumer">
@@ -15,7 +13,7 @@ export const SocialIcons = (props: FlexProps) => {
         <Box pos="relative" as={FaLinkedin} boxSize="18px" color="#0a66c2" />
       </Flex>
       <Link target="_blank" href="https://www.indiehackers.com/dominiksumer">
-        <Box as={CgIndieHackers} boxSize="20px" mx="-2px" color={githubColor} />
+        <Box as={CgIndieHackers} boxSize="20px" mx="-2px" color="github" />
       </Link>
       <Flex
         as={Link}
@@ -31,7 +29,7 @@ export const SocialIcons = (props: FlexProps) => {
         <Box as={FaInstagram} boxSize="14px" color="white" />
       </Flex>
       <Link target="_blank" href="https://github.com/dsumer">
-        <Box as={FaGithub} boxSize="18px" color={githubColor} />
+        <Box as={FaGithub} boxSize="18px" color="github" />
       </Link>
     </Flex>
   );

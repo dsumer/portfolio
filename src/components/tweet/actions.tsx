@@ -1,4 +1,4 @@
-import { Flex, Link, useColorModeValue } from '@chakra-ui/react';
+import { Flex, Link } from '@chakra-ui/react';
 import { TransformedTweet } from '../../utils/tweets';
 
 interface Props {
@@ -13,7 +13,7 @@ export const TweetActions = ({ data }: Props) => {
   const replyUrl = `https://twitter.com/intent/tweet?in_reply_to=${id}`;
 
   return (
-    <Flex gap={4} color={useColorModeValue('gray.600', 'gray.400')} align="center" fontSize="15px">
+    <Flex gap={4} color="darkGray" align="center" fontSize="15px">
       <Flex
         as={Link}
         align="center"

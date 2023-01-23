@@ -3,6 +3,7 @@ import Avatar from '../../public/images/avatar.png';
 import { ArticlePreview } from '../components/article-preview';
 import { Layout } from '../components/layout';
 import { LayoutWrapper } from '../components/layout-wrapper';
+import { NewsletterForm } from '../components/newsletter-form';
 import { SnappifyLogo } from '../components/snappify-logo';
 import { StandardImage } from '../components/standard-image';
 import { StandardLink } from '../components/standard-link';
@@ -48,17 +49,21 @@ const Page: NextPageWithLayout<Props> = ({ latestTweet }) => {
         </Flex>
         <Flex direction="column" align="center" gap={5}>
           <Text fontSize="lg" fontWeight="semibold">
-            What I&apos;m working on
+            What I&apos;m currently working on
           </Text>
           <Flex
             as={LinkBox}
             align="center"
             justify="center"
             rounded="lg"
+            maxW="100%"
             bg="linear-gradient(125.53deg, #FF9979 0%, #811FFF 100%);"
             py={5}
-            px={10}
+            px={8}
             color="white"
+            transition="all .3s"
+            _hover={{ transform: 'scale(1.025)' }}
+            _active={{ transform: 'scale(1)' }}
           >
             <SnappifyLogo />
             <LinkOverlay href="https://snappify.com" isExternal />
@@ -74,6 +79,7 @@ const Page: NextPageWithLayout<Props> = ({ latestTweet }) => {
           Latest Articles
         </Text>
         <Flex direction="column" align="center" mt={10} gap={6}>
+          {/** TODO: fill with data */}
           <ArticlePreview
             slug="how-to-use-react-to-generate-og-images"
             title="How to use React to generate your own OpenGraph images"
@@ -94,7 +100,8 @@ const Page: NextPageWithLayout<Props> = ({ latestTweet }) => {
           </StandardLink>
         </Flex>
       </Box>
-      {/** TODO: newsletter form */}
+      <Divider />
+      <NewsletterForm />
     </LayoutWrapper>
   );
 };
