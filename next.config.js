@@ -4,8 +4,9 @@ const nextConfig = {
   swcMinify: true,
 
   images: {
-    domains: [
-      'pbs.twimg.com', // Twitter Profile Picture
+    remotePatterns: [
+      { protocol: 'https', hostname: 'pbs.twimg.com' },
+      { protocol: 'https', hostname: 'abs.twimg.com' },
     ],
   },
 

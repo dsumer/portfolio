@@ -1,11 +1,55 @@
-import { Box, Button, Flex, FormControl, Input, LightMode, Text } from '@chakra-ui/react';
-import { observer } from 'mobx-react-lite';
-import { ChangeEvent, FormEvent } from 'react';
+'use client';
+
+import { ChangeEvent, useState } from 'react';
+import toast from 'react-hot-toast';
 import { FaCheck } from 'react-icons/fa';
 import Balancer from 'react-wrap-balancer';
-import { newsletterFormStore } from '../stores/newsletter-form-store';
+import { Box, Flex, styled } from 'styled-system/jsx';
+import { Text } from './common/text';
 
-export const NewsletterForm = observer(() => {
+type State = 'initial' | 'submitting' | 'success';
+
+export const NewsletterForm = () => {
+  const [email, setEmail] = useState('');
+  const [state, setState] = useState<State>('success');
+
+  const onSubmit = async () => {
+    if (state !== 'initial') {
+      return;
+    }
+
+    let errorMessage = "It didn't work as expected. 😢 Please tell Dominik! 😄";
+    const toastId = toast.loading('Submitting...');
+    setState('submitting');
+
+    try {
+      const response = await (
+        await fetch('https://api.convertkit.com/v3/forms/1930765/subscribe', {
+          method: 'post',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            api_key: process.env.NEXT_PUBLIC_CONVERTKIT_API_KEY,
+            email,
+          }),
+        })
+      ).json();
+      if (response.error) {
+        errorMessage = response.message;
+        throw {};
+      }
+      setState('success');
+      toast.dismiss(toastId);
+      toast.success("You'll soon receive a confirmation mail!");
+    } catch {
+      toast.dismiss(toastId);
+      toast.error(errorMessage);
+      setState('initial');
+    }
+  };
+
   return (
     <Flex justify="center" id="newsletter">
       <Box pos="relative">
@@ -43,8 +87,6 @@ export const NewsletterForm = observer(() => {
           color="gray.900"
           py={10}
           px={[8, 8, 16]}
-          border="1px solid"
-          borderColor="chakra-body-bg"
           _before={{
             content: "' '",
             zIndex: -1,
@@ -71,54 +113,60 @@ export const NewsletterForm = observer(() => {
             borderRadius: 'inherit',
           }}
         >
-          <LightMode>
-            <Text fontSize={['2xl', '3xl']} fontWeight="semibold" mb={2}>
-              <Balancer>I&apos;ve never sent a newsletter issue</Balancer>
-            </Text>
-            <Text fontSize={['xl', '2xl']} fontWeight="500" opacity={0.85} mb={10} mr={-2}>
-              But you don&apos;t want to miss out when I do! 😬
-            </Text>
-            <Flex
-              direction={['column', 'column', 'row']}
-              as="form"
-              onSubmit={(e: FormEvent) => {
-                e.preventDefault();
-                newsletterFormStore.submit();
+          <Text fontSize={['2xl', '3xl']} fontWeight="semibold" mb={2}>
+            <Balancer>I&apos;ve never sent a newsletter issue</Balancer>
+          </Text>
+          <Text fontSize={['xl', '2xl']} fontWeight="500" opacity={0.85} mb={8} mr={-1}>
+            But you don&apos;t want to miss out when I do! 😬
+          </Text>
+          <styled.form
+            display="flex"
+            flexDirection={['column', 'column', 'row']}
+            onSubmit={(e) => {
+              e.preventDefault();
+              onSubmit();
+            }}
+            gap={3}
+          >
+            <styled.input
+              color="gray.800"
+              _placeholder={{
+                color: 'gray.400',
               }}
-              gap={3}
+              bg="white"
+              rounded="md"
+              p={2}
+              id="email"
+              type="email"
+              required
+              placeholder="Your Email Address"
+              aria-label="Your Email Address"
+              value={email}
+              disabled={state !== 'initial'}
+              flexGrow={1}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+            />
+            <styled.button
+              bg={state === 'success' ? 'green.500' : 'slate.200'}
+              fontWeight="medium"
+              p={2}
+              minW="90px"
+              rounded="md"
+              display="flex"
+              cursor={state === 'initial' ? 'pointer' : 'not-allowed'}
+              transition="transform .3s"
+              _hover={{ transform: state === 'initial' ? 'translateY(-3px)' : undefined }}
+              _active={{ transform: 'translateY(0)' }}
+              alignItems="center"
+              justifyContent="center"
+              disabled={state !== 'initial'}
+              type={state === 'success' ? 'button' : 'submit'}
             >
-              <FormControl>
-                <Input
-                  variant="solid"
-                  color="gray.800"
-                  _placeholder={{
-                    color: 'gray.400',
-                  }}
-                  bg="white"
-                  id="email"
-                  type="email"
-                  required
-                  placeholder="Your Email"
-                  aria-label="Your Email"
-                  value={newsletterFormStore.email}
-                  disabled={newsletterFormStore.state !== 'initial'}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) => newsletterFormStore.changeEmail(e.target.value)}
-                />
-              </FormControl>
-              <FormControl w={['100%', '100%', '40%']}>
-                <Button
-                  colorScheme={newsletterFormStore.state === 'success' ? 'green' : 'blue'}
-                  isLoading={newsletterFormStore.state === 'submitting'}
-                  w="100%"
-                  type={newsletterFormStore.state === 'success' ? 'button' : 'submit'}
-                >
-                  {newsletterFormStore.state === 'success' ? <FaCheck /> : 'Submit'}
-                </Button>
-              </FormControl>
-            </Flex>
-          </LightMode>
+              {state === 'success' ? <FaCheck /> : 'Submit'}
+            </styled.button>
+          </styled.form>
         </Box>
       </Box>
     </Flex>
   );
-});
+};

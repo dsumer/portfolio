@@ -1,5 +1,5 @@
-import { Flex, FlexProps } from '@chakra-ui/react';
+import { BoxProps, styled } from 'styled-system/jsx';
 
-export const LayoutWrapper = (props: FlexProps) => (
-  <Flex as="section" direction="column" w="90%" maxW="900px" mx="auto" {...props} />
+export const LayoutWrapper = (props: BoxProps) => (
+  <styled.section display="flex" flexDir="column" w="90%" maxW="1000px" mx="auto" {...props} />
 );

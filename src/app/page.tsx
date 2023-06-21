@@ -1,34 +1,30 @@
-import { Box, Divider, Flex, LinkBox, LinkOverlay, SimpleGrid, Text } from '@chakra-ui/react';
+import { Box, Flex, LinkBox, LinkOverlay, styled } from 'styled-system/jsx';
 import Avatar from '../../public/images/avatar.png';
 import { ArticlePreview } from '../components/article-preview';
-import { Layout } from '../components/layout';
+import { Divider } from '../components/common/divider';
+import { Image } from '../components/common/image';
+import { Link } from '../components/common/link';
+import { Text } from '../components/common/text';
 import { LayoutWrapper } from '../components/layout-wrapper';
 import { NewsletterForm } from '../components/newsletter-form';
 import { SnappifyLogo } from '../components/snappify-logo';
-import { StandardImage } from '../components/standard-image';
-import { StandardLink } from '../components/standard-link';
-import { Tweet } from '../components/tweet/tweet';
+import { Tweet } from '../components/tweet';
 import { WavingHand } from '../components/waving-hand';
-import { NextPageWithLayout } from '../types/page';
-import { getLatestTweet, TransformedTweet } from '../utils/tweets';
+import { PINNED_TWEET_ID } from '../consts/common';
 
-interface Props {
-  latestTweet: TransformedTweet | null;
-}
-
-const Page: NextPageWithLayout<Props> = ({ latestTweet }) => {
+export default async function Page() {
   return (
     <LayoutWrapper gap={[12, 14, 16]}>
       <Flex direction={['column', 'column', 'row']} gap={[6, 8, 20]} mx="auto" align="center" justify="space-between">
         <Box w={['330px', '385px']}>
-          <Text as="h1" fontSize={['30px', '36px']} fontWeight="semibold" mb={4}>
+          <styled.h1 fontSize={['30px', '36px']} fontWeight="semibold" mb={4}>
             Hey, I&apos;m Dominik <WavingHand />
-          </Text>
+          </styled.h1>
           <Text fontSize={['20px', '24px']}>
             I love to bring my own ideas to life and strive to make a living from them.
           </Text>
         </Box>
-        <StandardImage
+        <Image
           priority
           loading="eager"
           src={Avatar}
@@ -40,21 +36,27 @@ const Page: NextPageWithLayout<Props> = ({ latestTweet }) => {
         />
       </Flex>
       <Divider />
-      <SimpleGrid w={['95%', '85%', '100%']} mx="auto" columns={[1, 1, 2]} columnGap={9} rowGap={20}>
+      <Box
+        display="grid"
+        w={['95%', '85%', '100%']}
+        mx="auto"
+        gridTemplateColumns={{ base: '1fr', md: '1fr 1fr' }}
+        gap={{ base: 16, md: 4 }}
+      >
         <Flex direction="column" align="center" gap={5}>
           <Text fontSize="lg" fontWeight="semibold">
-            My latest Tweet
+            Pinned Tweet
           </Text>
-          {latestTweet && <Tweet w="100%" data={latestTweet} />}
+          <Tweet id={PINNED_TWEET_ID} />
         </Flex>
         <Flex direction="column" align="center" gap={5}>
           <Text fontSize="lg" fontWeight="semibold">
             What I&apos;m currently working on
           </Text>
-          <Flex
-            as={LinkBox}
-            align="center"
-            justify="center"
+          <LinkBox
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
             rounded="lg"
             maxW="100%"
             bg="linear-gradient(125.53deg, #FF9979 0%, #811FFF 100%);"
@@ -66,18 +68,18 @@ const Page: NextPageWithLayout<Props> = ({ latestTweet }) => {
             _active={{ transform: 'scale(1)' }}
           >
             <SnappifyLogo />
-            <LinkOverlay href="https://snappify.com" isExternal />
-          </Flex>
+            <LinkOverlay href="https://snappify.com" target="_blank" rel="noopener" />
+          </LinkBox>
           <Text fontWeight="500" maxW="350px" textAlign="center">
             snappify is a powerful design tool enabling developers to create stunning visuals.
           </Text>
         </Flex>
-      </SimpleGrid>
+      </Box>
       <Divider />
       <Box>
-        <Text as="h2" fontSize={['24px', '28px']} textAlign="center">
+        <styled.h2 fontSize={['24px', '28px']} textAlign="center">
           Latest Articles
-        </Text>
+        </styled.h2>
         <Flex direction="column" align="center" mt={10} gap={6}>
           {/** TODO: fill with data */}
           <ArticlePreview
@@ -95,30 +97,13 @@ const Page: NextPageWithLayout<Props> = ({ latestTweet }) => {
             title="Publishing a TypeScript library in 2021"
             description="How to make your life easier by using TSDX to publish your next TypeScript library."
           />
-          <StandardLink href="/blog" fontSize="lg" mt={2}>
+          <Link href="/blog" fontSize="lg" mt={2}>
             Read more articles
-          </StandardLink>
+          </Link>
         </Flex>
       </Box>
       <Divider />
       <NewsletterForm />
     </LayoutWrapper>
   );
-};
-
-export default Page;
-
-Page.getLayout = function getLayout(page) {
-  return <Layout hideLogo>{page}</Layout>;
-};
-
-export async function getStaticProps() {
-  const latestTweet = await getLatestTweet();
-
-  return {
-    props: {
-      latestTweet,
-    },
-    revalidate: 3600, // fetching the latest tweet every hour
-  };
 }

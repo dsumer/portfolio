@@ -1,6 +1,13 @@
 export const SnappifyLogo = () => {
   return (
-    <svg width="334" height="104" viewBox="0 0 2673 837" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width="334"
+      height="104"
+      viewBox="0 0 2673 837"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ width: '100%' }}
+    >
       <rect x="30" y="41" width="951" height="754" rx="60" fill="#252525" />
       <path d="M30 101C30 67.8629 56.8629 41 90 41H921C954.137 41 981 67.8629 981 101V256H30V101Z" fill="#323232" />
       <circle cx="148" cy="155" r="39" fill="#FF5F57" />

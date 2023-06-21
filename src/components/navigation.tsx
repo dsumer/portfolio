@@ -1,20 +1,21 @@
-import { Box, Center, Divider, Flex, IconButton, useBreakpointValue, useColorMode } from '@chakra-ui/react';
+'use client';
 import throttle from 'lodash.throttle';
-import NextLink from 'next/link';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { FiMoon, FiSun } from 'react-icons/fi/index';
-import { CustomLink } from './custom-link';
+import { css } from 'styled-system/css';
+import { Center, Flex, styled } from 'styled-system/jsx';
+import { Divider } from './common/divider';
 import { LayoutWrapper } from './layout-wrapper';
+import { NavLink } from './nav-link';
+import { ThemeButton } from './theme-button';
 
-interface Props {
-  hideLogo?: boolean;
-}
+export const Navigation = () => {
+  const hideLogo = usePathname() === '/';
 
-export const Navigation = ({ hideLogo }: Props) => {
-  const { colorMode, toggleColorMode } = useColorMode();
   const [isSticky, setSticky] = useState(false);
-  const [showLogo, setShowLogo] = useState(false);
-  const isMobileTab = useBreakpointValue([true, true, false]);
+  const [_showLogo, setShowLogo] = useState(false);
+  const showLogo = !hideLogo || _showLogo;
 
   useEffect(() => {
     // We need to listen on scroll changes in order to detect if the Navigation is sticky
@@ -25,6 +26,12 @@ export const Navigation = ({ hideLogo }: Props) => {
       } else {
         setSticky(false);
       }
+
+      if (!hideLogo) {
+        return;
+      }
+
+      const isMobileTab = window.innerWidth < 768; // TODO: check if this is correct
       if (window.scrollY > (isMobileTab ? 65 : 95)) {
         setShowLogo(true);
       } else {
@@ -37,51 +44,44 @@ export const Navigation = ({ hideLogo }: Props) => {
     return () => {
       window.removeEventListener('scroll', scrollEventListener);
     };
-  }, [isMobileTab]);
+  }, [hideLogo]);
 
   return (
-    <Box
+    <styled.nav
       w="100%"
-      as="nav"
-      zIndex="docked"
+      zIndex="999"
       boxShadow={isSticky ? '0px 0px 10px rgba(0,0,0,0.15)' : 'none'}
-      bg="nav-bg"
+      bgColor="navBg" // TODO: doesnt work
       backdropFilter="blur(10px)"
       transition="all .3s"
       position="sticky"
       top="0px"
     >
       <LayoutWrapper
-        direction="row"
-        align="center"
-        justify="space-between"
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="space-between"
         fontSize={['16px', '18px', '20px']}
         fontWeight="semibold"
         py={4}
       >
-        <Box as={NextLink} href="/" cursor="pointer" opacity={hideLogo && !showLogo ? 0 : 1} transition="all .3s">
+        <Link
+          href="/"
+          className={css({
+            opacity: showLogo ? 1 : 0.0001, // TODO: fix workaround 0.0001, bug in panda?
+            transition: 'opacity .3s',
+          })}
+        >
           Dominik Sumer 👋
-        </Box>
+        </Link>
         <Flex align="center" gap={4}>
-          <CustomLink name="Articles" href="/blog">
-            Articles
-          </CustomLink>
+          <NavLink name="Articles" href="/blog" />
           <Center h="25px">
             <Divider orientation="vertical" />
           </Center>
-          <IconButton
-            variant="ghost"
-            minW="0px"
-            height="auto"
-            p={2}
-            m={-2}
-            fontSize="20px"
-            aria-label={`Switch to ${colorMode === 'light' ? 'dark' : 'light'} mode`}
-            icon={colorMode === 'light' ? <FiSun /> : <FiMoon />}
-            onClick={toggleColorMode}
-          />
+          <ThemeButton />
         </Flex>
       </LayoutWrapper>
-    </Box>
+    </styled.nav>
   );
 };
