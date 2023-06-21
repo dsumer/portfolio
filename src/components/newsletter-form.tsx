@@ -11,7 +11,7 @@ type State = 'initial' | 'submitting' | 'success';
 
 export const NewsletterForm = () => {
   const [email, setEmail] = useState('');
-  const [state, setState] = useState<State>('success');
+  const [state, setState] = useState<State>('initial');
 
   const onSubmit = async () => {
     if (state !== 'initial') {
