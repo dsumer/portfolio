@@ -1,12 +1,11 @@
 import { Flex, LinkBox, LinkOverlay, styled } from 'styled-system/jsx';
 import { Divider } from '../components/common/divider';
 import { Text } from '../components/common/text';
-import { LayoutWrapper } from '../components/layout-wrapper';
 import { SnappifyLogo } from '../components/snappify-logo';
 
 export default function NotFound() {
   return (
-    <LayoutWrapper mt={12}>
+    <Flex direction="column" mt={12}>
       <styled.h1 textAlign="center" fontSize="3xl" fontWeight="bold">
         Page not found 🤷‍♂️
       </styled.h1>
@@ -41,6 +40,6 @@ export default function NotFound() {
           </Text>
         </Flex>
       </Flex>
-    </LayoutWrapper>
+    </Flex>
   );
 }

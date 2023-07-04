@@ -59,11 +59,14 @@ export const NewsletterForm = () => {
           height="150px"
           background="linear-gradient(333deg, #ff00c9, #1a99ff)"
           border-radius="50%"
-          top="-15px"
+          top="15px"
           right="-25px"
           z-index="-1"
           filter="blur(50px)"
           opacity="0.3"
+          animationName="bounce"
+          animationDuration="10s"
+          animationIterationCount="infinite"
         />
         <Box
           position="absolute"
@@ -72,10 +75,13 @@ export const NewsletterForm = () => {
           background="linear-gradient(333deg, #ff00c9, #1a99ff)"
           border-radius="50%"
           left="-15px"
-          bottom="-25px"
+          bottom="-35px"
           z-index="-1"
           filter="blur(50px)"
           opacity="0.3"
+          animationName="bounce"
+          animationDuration="7s"
+          animationIterationCount="infinite"
         />
         <Box
           pos="relative"
@@ -147,7 +153,8 @@ export const NewsletterForm = () => {
               onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
             />
             <styled.button
-              bg={state === 'success' ? 'green.500' : 'slate.200'}
+              bg={state === 'success' ? 'green.500' : 'blue.500'}
+              color="white"
               fontWeight="medium"
               p={2}
               minW="90px"

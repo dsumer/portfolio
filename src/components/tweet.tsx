@@ -19,6 +19,7 @@ export const Tweet = ({ id }: Props) => {
           '--tweet-container-margin': '0!important',
           '--tweet-body-line-height': '1.25!important',
           '--tweet-body-font-size': { base: '14px!important', md: '16px!important' },
+          transition: 'all 0s!important',
         },
       }}
     >

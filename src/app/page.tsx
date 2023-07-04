@@ -5,16 +5,16 @@ import { Divider } from '../components/common/divider';
 import { Image } from '../components/common/image';
 import { Link } from '../components/common/link';
 import { Text } from '../components/common/text';
-import { LayoutWrapper } from '../components/layout-wrapper';
 import { NewsletterForm } from '../components/newsletter-form';
 import { SnappifyLogo } from '../components/snappify-logo';
 import { Tweet } from '../components/tweet';
 import { WavingHand } from '../components/waving-hand';
+import { ARTICLES } from '../consts/articles';
 import { PINNED_TWEET_ID } from '../consts/common';
 
 export default async function Page() {
   return (
-    <LayoutWrapper gap={[12, 14, 16]}>
+    <Flex direction="column" gap={[12, 14, 20]}>
       <Flex direction={['column', 'column', 'row']} gap={[6, 8, 20]} mx="auto" align="center" justify="space-between">
         <Box w={['330px', '385px']}>
           <styled.h1 fontSize={['30px', '36px']} fontWeight="semibold" mb={4}>
@@ -81,22 +81,11 @@ export default async function Page() {
           Latest Articles
         </styled.h2>
         <Flex direction="column" align="center" mt={10} gap={6}>
-          {/** TODO: fill with data */}
-          <ArticlePreview
-            slug="how-to-use-react-to-generate-og-images"
-            title="How to use React to generate your own OpenGraph images"
-            description="Let's use the power of React together with Puppeteer / Playwright to style and generate dynamic images on the fly."
-          />
-          <ArticlePreview
-            slug="how-to-integrate-gumroad-as-payment-provider-for-your-saas"
-            title="How to integrate Gumroad as a payment provider for your SaaS"
-            description="You want to concentrate on getting the MVP up and running instead of spending hours integrating a payment provider? Check out this blog post ✌️"
-          />
-          <ArticlePreview
-            slug="publishing-a-typescript-library-in-2021"
-            title="Publishing a TypeScript library in 2021"
-            description="How to make your life easier by using TSDX to publish your next TypeScript library."
-          />
+          {Object.keys(ARTICLES)
+            .slice(-3)
+            .map((slug) => (
+              <ArticlePreview key={slug} slug={slug} {...ARTICLES[slug]} />
+            ))}
           <Link href="/blog" fontSize="lg" mt={2}>
             Read more articles
           </Link>
@@ -104,6 +93,6 @@ export default async function Page() {
       </Box>
       <Divider />
       <NewsletterForm />
-    </LayoutWrapper>
+    </Flex>
   );
 }

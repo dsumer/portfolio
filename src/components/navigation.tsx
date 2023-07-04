@@ -8,10 +8,12 @@ import { Center, Flex, styled } from 'styled-system/jsx';
 import { Divider } from './common/divider';
 import { LayoutWrapper } from './layout-wrapper';
 import { NavLink } from './nav-link';
+import ScrollProgressbar from './scroll-progress-bar';
 import { ThemeButton } from './theme-button';
 
 export const Navigation = () => {
   const hideLogo = usePathname() === '/';
+  const showProgressbar = usePathname().startsWith('/blog/');
 
   const [isSticky, setSticky] = useState(false);
   const [_showLogo, setShowLogo] = useState(false);
@@ -51,9 +53,9 @@ export const Navigation = () => {
       w="100%"
       zIndex="999"
       boxShadow={isSticky ? '0px 0px 10px rgba(0,0,0,0.15)' : 'none'}
-      bgColor="navBg" // TODO: doesnt work
+      bgColor="navBg"
       backdropFilter="blur(10px)"
-      transition="all .3s"
+      transition="box-shadow .6s"
       position="sticky"
       top="0px"
     >
@@ -82,6 +84,7 @@ export const Navigation = () => {
           <ThemeButton />
         </Flex>
       </LayoutWrapper>
+      {showProgressbar && <ScrollProgressbar />}
     </styled.nav>
   );
 };

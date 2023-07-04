@@ -22,9 +22,10 @@ export const ArticlePreview = ({ title, slug, description }: Props) => {
       bg="lightGray"
       rounded="lg"
       p={3}
-      transition="all .3s"
+      transition="transform .3s"
       _hover={{ transform: 'scale(1.025)' }}
       _active={{ transform: 'scale(1)' }}
+      cursor="pointer"
     >
       <Box flexShrink={0} width="130px" height="130px" overflow="hidden" rounded="md">
         <Image alt="Thumbnail" src={`/images/blog/${slug}/thumbnail.jpg`} width={130} height={130} />

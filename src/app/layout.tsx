@@ -3,6 +3,7 @@ import { Toaster } from 'react-hot-toast';
 import { Provider as BalancerProvider } from 'react-wrap-balancer';
 import { styled } from 'styled-system/jsx';
 import { Footer } from '../components/footer';
+import { LayoutWrapper } from '../components/layout-wrapper';
 import { Navigation } from '../components/navigation';
 import { Providers } from '../components/providers';
 import './global.css';
@@ -41,7 +42,7 @@ export default function RootLayout({
           <Providers>
             <Navigation />
             <styled.main flexGrow={1} my={8}>
-              {children}
+              <LayoutWrapper>{children}</LayoutWrapper>
             </styled.main>
             <Footer />
             <Toaster position="bottom-center" toastOptions={{ duration: 5000 }} />
