@@ -17,10 +17,11 @@ const LINK_HOVER_STATE = {
 };
 const HEADING_LINK_PROPS = {
   scrollMarginTop: { base: '70px', sm: '80px' },
-  '&:hover a': { display: 'inline-block' },
+  '&:hover a': { opacity: 1 },
   '& a': {
     width: '35px',
-    display: 'none',
+    opacity: 0,
+    display: { base: 'none', sm: 'inline-block' },
     bg: 'none',
     pos: 'absolute',
     left: '-25px',
@@ -78,6 +79,19 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       >
         <Balancer>{children}</Balancer>
       </styled.h3>
+    ),
+    h4: ({ children, ...props }) => (
+      <styled.h4
+        pos="relative"
+        fontSize="23px"
+        lineHeight="1.25em"
+        fontWeight="medium"
+        mt={16}
+        css={HEADING_LINK_PROPS}
+        {...props}
+      >
+        <Balancer>{children}</Balancer>
+      </styled.h4>
     ),
     p: (props) => <styled.p fontSize={DEFAULT_FONTSIZE} lineHeight="1.65em" mt={6} {...props} />,
     ul: (props) => {

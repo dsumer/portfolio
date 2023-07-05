@@ -82,7 +82,7 @@ export default async function Page() {
         </styled.h2>
         <Flex direction="column" align="center" mt={10} gap={6}>
           {Object.keys(ARTICLES)
-            .slice(-3)
+            .slice(0, 3)
             .map((slug) => (
               <ArticlePreview key={slug} slug={slug} {...ARTICLES[slug]} />
             ))}
