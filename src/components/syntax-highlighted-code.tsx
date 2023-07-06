@@ -1,4 +1,4 @@
-import shiki from 'shiki';
+import * as shiki from 'shiki';
 import { styled } from 'styled-system/jsx';
 
 let highlighter: shiki.Highlighter | null = null;

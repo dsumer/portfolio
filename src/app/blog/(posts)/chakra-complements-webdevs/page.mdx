@@ -1,3 +1,7 @@
+import { getOgImageUrl } from '../util';
+
+export const slug = 'chakra-complements-webdevs';
+
 export const metadata = {
   title: 'How ChakraUI complements your existing web development skills',
   description:
@@ -6,6 +10,7 @@ export const metadata = {
     type: 'article',
     publishedTime: '2021-01-10T00:00:00.000Z',
     authors: ['Dominik Sumer'],
+    images: [getOgImageUrl(slug)],
   },
 };
 
@@ -13,7 +18,7 @@ export const metadata = {
 
 <BlogMetaInfo date={metadata.openGraph.publishedTime} />
 
-<BlogCoverImage slug="chakra-complements-webdevs" />
+<BlogCoverImage slug={slug} />
 
 Over the last years many different React component libraries got released. For example [Ant Design](https://ant.design), [React Bootstrap](https://react-bootstrap.github.io/), [MaterialUI](https://material-ui.com/). They all battle-powered us with components we‘ve needed in day-to-day UI development, but none of them changed the way I develop as ChakraUI did.
 

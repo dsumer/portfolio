@@ -1,3 +1,7 @@
+import { getOgImageUrl } from '../util';
+
+export const slug = 'how-my-first-side-project-made-me-the-developer-i-am-today';
+
 export const metadata = {
   title: 'How my first side project made me the developer I am today',
   description:
@@ -6,6 +10,7 @@ export const metadata = {
     type: 'article',
     publishedTime: '2021-04-21T00:00:00.000Z',
     authors: ['Dominik Sumer'],
+    images: [getOgImageUrl(slug)],
   },
 };
 
@@ -13,7 +18,7 @@ export const metadata = {
 
 <BlogMetaInfo date={metadata.openGraph.publishedTime} />
 
-<BlogCoverImage slug="how-my-first-side-project-made-me-the-developer-i-am-today" />
+<BlogCoverImage slug={slug} />
 
 It was in 2010 (at the time of writing this it’s already 11 years ago 😱) when I started my first side project in software development. I was 16 years old, still in technical high school, already a bit into programming and hungry for more.
 
