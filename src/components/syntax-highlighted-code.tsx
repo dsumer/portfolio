@@ -1,17 +1,14 @@
+import { use } from 'react';
 import * as shiki from 'shiki';
 import { styled } from 'styled-system/jsx';
-
-let highlighter: shiki.Highlighter | null = null;
 
 interface Props {
   children: string;
   className?: string;
 }
 
-export const SyntaxHighlightedCode = async ({ className = '', children }: Props) => {
-  if (!highlighter) {
-    highlighter = await shiki.getHighlighter({ theme: 'css-variables' });
-  }
+export const SyntaxHighlightedCode = ({ className = '', children }: Props) => {
+  const highlighter = use(shiki.getHighlighter({ theme: 'css-variables' }));
   const language = className.replace('language-', '').split(':')[0];
   const highlightedCode = highlighter
     .codeToHtml(children, { lang: language })
