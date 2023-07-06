@@ -5,7 +5,7 @@ interface Props {
   slug: string;
 }
 
-export const BlogCoverImage = ({ slug }: Props) => {
+export const BlogCoverImage = async ({ slug }: Props) => {
   return (
     <Box maxW="750px" mt={8} mb={12}>
       <Image
@@ -14,7 +14,8 @@ export const BlogCoverImage = ({ slug }: Props) => {
         width={1400}
         height={700}
         rounded="10px"
-        placeholder="blur"
+        priority
+        bg="linear-gradient(140deg, #8336d29c, transparent)"
       />
     </Box>
   );

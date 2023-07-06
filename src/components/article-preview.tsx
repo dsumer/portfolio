@@ -1,5 +1,5 @@
 import Balancer from 'react-wrap-balancer';
-import { Box, Flex, LinkBox, styled } from 'styled-system/jsx';
+import { Flex, LinkBox, styled } from 'styled-system/jsx';
 import { Image } from './common/image';
 import { LinkOverlay } from './common/link-overlay';
 import { Text } from './common/text';
@@ -27,9 +27,15 @@ export const ArticlePreview = ({ title, slug, description }: Props) => {
       _active={{ transform: 'scale(1)' }}
       cursor="pointer"
     >
-      <Box flexShrink={0} width="130px" height="130px" overflow="hidden" rounded="md">
-        <Image alt="Thumbnail" src={`/images/blog/${slug}/thumbnail.jpg`} width={130} height={130} />
-      </Box>
+      <Image
+        alt="Thumbnail"
+        src={`/images/blog/${slug}/thumbnail.jpg`}
+        width={130}
+        height={130}
+        rounded="md"
+        bg="linear-gradient(140deg, #8336d29c, transparent)"
+        flexShrink={0}
+      />
       <Flex direction="column">
         <styled.h3 fontSize="lg" fontWeight="semibold" mb={2}>
           <Balancer>
