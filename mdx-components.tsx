@@ -174,7 +174,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       const isCodeBlock = dataCodeBlock === true;
 
       if (isCodeBlock) {
-        return (<SyntaxHighlightedCode {...props} />) as any;
+        return <SyntaxHighlightedCode {...props} />;
       }
 
       return (
