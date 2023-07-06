@@ -14,6 +14,7 @@ export const BlogCoverImage = ({ slug }: Props) => {
         width={1400}
         height={700}
         rounded="10px"
+        placeholder="blur"
       />
     </Box>
   );
