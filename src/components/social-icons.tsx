@@ -47,7 +47,7 @@ export const SocialIcons = (props: FlexProps) => {
       </Link>
       <Link
         display="flex"
-        href="https://www.instagram.com/dominik.sumer.dev/"
+        href="https://www.instagram.com/dominik.sumer/"
         isExternal
         flexShrink={0}
         justifyContent="center"

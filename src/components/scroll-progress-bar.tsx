@@ -19,14 +19,17 @@ const ScrollProgressbar = () => {
   return (
     <Box pos="absolute" bottom={0 + 'px'} left="0" width="100%" height="3px" zIndex="10" opacity=".8">
       <Box
+        style={
+          {
+            '--progress': progress + '%',
+          } as React.CSSProperties
+        }
         pos="absolute"
         left="0"
         top="0"
         height="100%"
         bg={{ base: 'blue.500', _dark: 'purple.800' }}
-        style={{
-          width: `${progress}%`,
-        }}
+        width="var(--progress)"
       />
     </Box>
   );
