@@ -34,7 +34,7 @@ const HEADING_LINK_PROPS = {
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...components,
-    blockquote: (props) => {
+    blockquote: ({ ref, ...props }) => {
       const blockQuoteColor = { base: 'gray.500', _dark: 'gray.400' };
       return (
         <styled.blockquote
@@ -49,12 +49,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         />
       );
     },
-    h1: ({ children, ...props }) => (
+    h1: ({ children, ref, ...props }) => (
       <styled.h1 fontSize="5xl" lineHeight="1.25em" fontWeight="medium" css={{ '& a': { display: 'none' } }} {...props}>
         <Balancer>{children}</Balancer>
       </styled.h1>
     ),
-    h2: ({ children, ...props }) => (
+    h2: ({ children, ref, ...props }) => (
       <styled.h2
         pos="relative"
         fontSize="3xl"
@@ -67,7 +67,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         <Balancer>{children}</Balancer>
       </styled.h2>
     ),
-    h3: ({ children, ...props }) => (
+    h3: ({ children, ref, ...props }) => (
       <styled.h3
         pos="relative"
         fontSize="2xl"
@@ -80,7 +80,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         <Balancer>{children}</Balancer>
       </styled.h3>
     ),
-    h4: ({ children, ...props }) => (
+    h4: ({ children, ref, ...props }) => (
       <styled.h4
         pos="relative"
         fontSize="23px"
@@ -93,8 +93,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         <Balancer>{children}</Balancer>
       </styled.h4>
     ),
-    p: (props) => <styled.p fontSize={DEFAULT_FONTSIZE} lineHeight="1.65em" mt={6} {...props} />,
-    ul: (props) => {
+    p: ({ ref, ...props }) => <styled.p fontSize={DEFAULT_FONTSIZE} lineHeight="1.65em" mt={6} {...props} />,
+    ul: ({ ref, ...props }) => {
       return (
         <styled.ul
           css={{ '& li': { my: 2, listStyle: 'disc' } }}
@@ -107,7 +107,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         />
       );
     },
-    ol: (props) => {
+    ol: ({ ref, ...props }) => {
       return (
         <styled.ol
           css={{ '& li': { my: 2, listStyle: 'decimal' } }}
@@ -120,7 +120,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         />
       );
     },
-    a: ({ href, ...props }) => {
+    a: ({ href, ref, ...props }) => {
       const isExternal = !!(href && !href.startsWith('/') && !href.startsWith('#'));
       // TODO: track external links with vercel analytics
 
@@ -144,7 +144,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     hr: ({ children }) => {
       return <Divider my={8}>{children}</Divider>;
     },
-    pre: ({ children, ...props }) => {
+    pre: ({ children, ref, ...props }) => {
       return (
         <styled.pre
           fontSize={{ base: '16px', sm: '20px' }}
