@@ -17,7 +17,7 @@ const ScrollProgressbar = () => {
   }, []);
 
   return (
-    <Box pos="absolute" bottom={0 + 'px'} left="0" width="100%" height="3px" zIndex="10" opacity=".8">
+    <Box pos="absolute" bottom={0 + 'px'} left="0" overflow="hidden" width="100%" height="3px" zIndex="10" opacity=".8">
       <Box
         style={
           {

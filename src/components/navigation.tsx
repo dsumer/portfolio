@@ -70,9 +70,11 @@ export const Navigation = () => {
         <Link
           href="/"
           className={css({
-            opacity: showLogo ? 1 : 0.0001, // TODO: fix workaround 0.0001, bug in panda?
             transition: 'opacity .3s',
           })}
+          style={{
+            opacity: showLogo ? 1 : 0,
+          }}
         >
           Dominik Sumer 👋
         </Link>

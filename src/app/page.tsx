@@ -71,7 +71,7 @@ export default async function Page() {
             <LinkOverlay href="https://snappify.com" target="_blank" rel="noopener" />
           </LinkBox>
           <Text fontWeight="500" maxW="350px" textAlign="center">
-            snappify is a powerful design tool enabling developers to create stunning visuals.
+            snappify is a powerful design tool enabling developers to create stunning presentations.
           </Text>
         </Flex>
       </Box>

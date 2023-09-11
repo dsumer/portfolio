@@ -20,7 +20,7 @@
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.8.0",
-    "react-tweet": "^2.0.1",
+    "react-tweet": "^3.1.1",
     "react-wrap-balancer": "^0.4.0",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.1.0",
@@ -28,7 +28,7 @@
     "shiki": "^0.14.3"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.5.0",
+    "@pandacss/dev": "^0.14.0",
     "@types/lodash.throttle": "^4.1.7",
     "@types/mdx": "^2.0.5",
     "@types/node": "18.7.13",
