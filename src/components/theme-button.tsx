@@ -15,6 +15,7 @@ export const ThemeButton = () => {
       onClick={() => {
         setTheme(isDark ? 'light' : 'dark');
       }}
+      color="inherit"
     >
       {isDark ? <FiMoon /> : <FiSun />}
     </styled.button>
