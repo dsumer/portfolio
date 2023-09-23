@@ -33,7 +33,7 @@ export const Navigation = () => {
         return;
       }
 
-      const isMobileTab = window.innerWidth < 768; // TODO: check if this is correct
+      const isMobileTab = window.innerWidth < 768;
       if (window.scrollY > (isMobileTab ? 65 : 95)) {
         setShowLogo(true);
       } else {

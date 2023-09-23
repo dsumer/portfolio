@@ -86,7 +86,7 @@ All of this is wrapped in an Helper HoC which takes care of making the API calls
 function createIsomorphLink(ctx) {
   if (ctx) {
     const { HttpLink } = require('@apollo/client'); // eslint-disable-line @typescript-eslint/no-var-requires
-    // TODO: we need to look into this, as with this we are still doing a network request to our own application, but with apollo-link-schema we don't have our context available on the serverside
+    // TODO we need to look into this, as with this we are still doing a network request to our own application, but with apollo-link-schema we don't have our context available on the serverside
     return new HttpLink({
       uri: 'http://localhost:3000/api/graphql',
       credentials: 'same-origin',

@@ -1,3 +1,4 @@
+import va from '@vercel/analytics';
 import type { MDXComponents } from 'mdx/types';
 import React from 'react';
 import Balancer from 'react-wrap-balancer';
@@ -122,7 +123,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     },
     a: ({ href, ref, ...props }) => {
       const isExternal = !!(href && !href.startsWith('/') && !href.startsWith('#'));
-      // TODO: track external links with vercel analytics
 
       return (
         <Link
@@ -137,6 +137,13 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
           _focus={{ outline: 'none', ...LINK_HOVER_STATE }}
           href={href || '#'}
           isExternal={isExternal}
+          onClick={() => {
+            if (isExternal) {
+              va.track('externalLink', {
+                href,
+              });
+            }
+          }}
           {...props}
         />
       );

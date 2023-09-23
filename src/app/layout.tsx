@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { Metadata } from 'next';
 import { Toaster } from 'react-hot-toast';
 import { Provider as BalancerProvider } from 'react-wrap-balancer';
@@ -7,8 +8,6 @@ import { LayoutWrapper } from '../components/layout-wrapper';
 import { Navigation } from '../components/navigation';
 import { Providers } from '../components/providers';
 import './global.css';
-
-// TODO: add vercel analytics
 
 export const metadata: Metadata = {
   title: 'Dominik Sumer',
@@ -48,6 +47,7 @@ export default function RootLayout({
             <Toaster position="bottom-center" toastOptions={{ duration: 5000 }} />
           </Providers>
         </BalancerProvider>
+        <Analytics />
       </body>
     </html>
   );

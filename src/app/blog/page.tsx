@@ -14,7 +14,7 @@ export default function Page() {
         <styled.h2 fontSize={['24px', '28px']} textAlign="center">
           Glad you&apos;re stopping by! 🙇‍♂️
         </styled.h2>
-        <Flex direction="column" align="center" mt={10} gap={6}>
+        <Flex direction="column" align="center" mt={10} gap={10}>
           {Object.keys(ARTICLES).map((slug) => (
             <ArticlePreview key={slug} slug={slug} {...ARTICLES[slug]} />
           ))}

@@ -13,11 +13,19 @@ export const Divider = ({ orientation = 'horizontal', thickness = '1px', ...prop
       css={{
         '--thickness': thickness,
       }}
-      borderColor={{ base: 'gray.100', _dark: 'gray.800' }}
-      width={isHorizontal ? '100%' : 0}
-      height={isHorizontal ? 0 : '100%'}
-      borderTopWidth={isHorizontal ? 'var(--thickness)' : 0}
-      borderLeftWidth={isHorizontal ? 0 : 'var(--thickness)'}
+      width={isHorizontal ? '100%' : 'var(--thickness)'}
+      height={isHorizontal ? 'var(--thickness)' : '100%'}
+      background={
+        isHorizontal
+          ? {
+              base: 'linear-gradient(to right, #f1f1f100, #f1f1f1 30%, #f1f1f1 70%, #f1f1f100)',
+              _dark: 'linear-gradient(to right, #2c353f00, #2c353f 30%, #2c353f 70%, #2c353f00)',
+            }
+          : {
+              base: 'linear-gradient(to bottom, #f1f1f100, #f1f1f1 30%, #f1f1f1 70%, #f1f1f100)',
+              _dark: 'linear-gradient(to bottom, #2c353f00, #2c353f 30%, #2c353f 70%, #2c353f00)',
+            }
+      }
       {...props}
     />
   );
