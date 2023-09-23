@@ -7,10 +7,11 @@ import { Footer } from '../components/footer';
 import { LayoutWrapper } from '../components/layout-wrapper';
 import { Navigation } from '../components/navigation';
 import { Providers } from '../components/providers';
+import { websiteUrl } from '../consts/common';
 import './global.css';
 
 export const metadata: Metadata = {
-  title: 'Dominik Sumer',
+  title: { template: '%s | Dominik Sumer', default: 'Dominik Sumer' },
   description: 'I love to bring my own ideas to life and strive to make a living from them.',
   viewport: 'width=device-width, initial-scale=1',
   icons: [
@@ -25,6 +26,26 @@ export const metadata: Metadata = {
       url: '/images/apple-icon-180.png',
     },
   ],
+  openGraph: {
+    title: 'Dominik Sumer',
+    description: 'I love to bring my own ideas to life and strive to make a living from them.',
+    url: 'https://dominiksumer.com',
+    siteName: "Dominik Sumer's site",
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: `${websiteUrl}/og.png`,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    title: 'Dominik Sumer',
+    card: 'summary_large_image',
+    creator: '@dominiksumer',
+  },
 };
 
 export default function RootLayout({

@@ -4,7 +4,7 @@ import { ArticlePreview } from '../../components/article-preview';
 import { ARTICLES } from '../../consts/articles';
 
 export const metadata: Metadata = {
-  title: 'Articles - Dominik Sumer',
+  title: 'Articles',
 };
 
 export default function Page() {

@@ -7,7 +7,7 @@ interface Props {
 
 export const BlogCoverImage = ({ slug }: Props) => {
   return (
-    <Box maxW="750px" mt={8} mb={12}>
+    <Box maxW="750px" my={8}>
       <Image
         src={`/images/blog/${slug}/banner.jpg`}
         alt="Blog Post Cover Image"

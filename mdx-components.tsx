@@ -1,4 +1,3 @@
-import va from '@vercel/analytics';
 import type { MDXComponents } from 'mdx/types';
 import React from 'react';
 import Balancer from 'react-wrap-balancer';
@@ -11,7 +10,7 @@ import { Link } from './src/components/common/link';
 import { SyntaxHighlightedCode } from './src/components/syntax-highlighted-code';
 
 const CODE_FONT_FAMILY = 'SFMono-Regular, Menlo, Monaco, Consolas, monospace';
-const DEFAULT_FONTSIZE = { base: '18px', sm: '23px' };
+const DEFAULT_FONTSIZE = { base: '18px', sm: '21px' };
 const LINK_HOVER_STATE = {
   bg: { base: 'blue.100', _dark: 'purple.800' },
   color: { base: 'blue.700', _dark: 'purple.200' },
@@ -27,6 +26,9 @@ const HEADING_LINK_PROPS = {
     pos: 'absolute',
     left: '-25px',
     color: { base: 'gray.700', _dark: 'gray.200' },
+    _hover: {
+      bg: 'none',
+    },
   },
   '& a .icon': { _before: { content: "'#'" } },
 } as const;
@@ -61,7 +63,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         fontSize="3xl"
         lineHeight="1.25em"
         fontWeight="medium"
-        mt={20}
+        mt={24}
         css={HEADING_LINK_PROPS}
         {...props}
       >
@@ -137,13 +139,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
           _focus={{ outline: 'none', ...LINK_HOVER_STATE }}
           href={href || '#'}
           isExternal={isExternal}
-          onClick={() => {
-            if (isExternal) {
-              va.track('externalLink', {
-                href,
-              });
-            }
-          }}
           {...props}
         />
       );
@@ -154,7 +149,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     pre: ({ children, ref, ...props }) => {
       return (
         <styled.pre
-          fontSize={{ base: '16px', sm: '20px' }}
+          fontSize={{ base: '16px', sm: '18px' }}
           mt={6}
           mb={4}
           p={6}
@@ -186,7 +181,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
       return (
         <styled.code
-          fontSize={'21px'}
+          fontSize={'18px'}
           my={-1}
           p={1}
           bg={{ base: 'lightGray', _dark: '#27303f' }}
