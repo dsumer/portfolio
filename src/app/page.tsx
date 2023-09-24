@@ -45,7 +45,7 @@ export default async function Page() {
           w={['95%', '85%', '100%']}
           mx="auto"
           gridTemplateColumns={{ base: '1fr', md: '1fr 1fr' }}
-          gap={{ base: 16, md: 4 }}
+          gap={{ base: 20, md: 4 }}
         >
           <Flex direction="column" align="center" gap={5}>
             <Text fontSize="lg" fontWeight="semibold">

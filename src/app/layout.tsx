@@ -10,6 +10,7 @@ import { websiteUrl } from '../consts/common';
 import './global.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(websiteUrl),
   title: { template: '%s | Dominik Sumer', default: 'Dominik Sumer' },
   description: 'I love to bring my own ideas to life and strive to make a living from them.',
   viewport: 'width=device-width, initial-scale=1',
@@ -60,7 +61,7 @@ export default function RootLayout({
         <BalancerProvider>
           <Providers>
             <Navigation />
-            <styled.main display="flex" flexDir="column" flexGrow={1} my={8} gap={[12, 14, 16]}>
+            <styled.main display="flex" flexDir="column" flexGrow={1} my={8} gap={20}>
               {children}
             </styled.main>
             <Footer />

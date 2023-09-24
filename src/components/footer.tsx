@@ -6,7 +6,7 @@ import { SocialIcons } from './social-icons';
 export function Footer() {
   return (
     <>
-      <Divider mb={6} mt={10} w="90%" maxW="1000px" mx="auto" />
+      <Divider mb={6} mt={20} w="90%" maxW="1000px" mx="auto" />
       <styled.footer display="flex" flexDir="column" alignItems="center" py={3} mb={3}>
         <Flex fontSize="sm" color="gray.500">
           I&apos;m available for hire @&nbsp;
