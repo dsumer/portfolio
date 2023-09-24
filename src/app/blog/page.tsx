@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Box, Flex, styled } from 'styled-system/jsx';
 import { ArticlePreview } from '../../components/article-preview';
+import { LayoutWrapper } from '../../components/layout-wrapper';
 import { ARTICLES } from '../../consts/articles';
 
 export const metadata: Metadata = {
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <Flex direction="column" gap={20}>
+    <LayoutWrapper gap={20}>
       <Box>
         <styled.h2 fontSize={['24px', '28px']} textAlign="center">
           Glad you&apos;re stopping by! 🙇‍♂️
@@ -20,6 +21,6 @@ export default function Page() {
           ))}
         </Flex>
       </Box>
-    </Flex>
+    </LayoutWrapper>
   );
 }

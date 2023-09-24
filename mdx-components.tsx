@@ -22,13 +22,10 @@ const HEADING_LINK_PROPS = {
     width: '35px',
     opacity: 0,
     display: { base: 'none', sm: 'inline-block' },
-    bg: 'none',
+    bg: 'none!important',
     pos: 'absolute',
     left: '-25px',
     color: { base: 'gray.700', _dark: 'gray.200' },
-    _hover: {
-      bg: 'none',
-    },
   },
   '& a .icon': { _before: { content: "'#'" } },
 } as const;
@@ -181,7 +178,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
       return (
         <styled.code
-          fontSize={'18px'}
+          fontSize={{ base: '16px', sm: '18px' }}
           my={-1}
           p={1}
           bg={{ base: 'lightGray', _dark: '#27303f' }}

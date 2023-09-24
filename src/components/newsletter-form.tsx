@@ -54,6 +54,7 @@ export const NewsletterForm = () => {
     <Flex justify="center" id="newsletter">
       <Box pos="relative">
         <Box
+          display={['none', 'block']}
           position="absolute"
           width="250px"
           height="150px"
@@ -69,6 +70,7 @@ export const NewsletterForm = () => {
           animationIterationCount="infinite"
         />
         <Box
+          display={['none', 'block']}
           position="absolute"
           width="250px"
           height="150px"
@@ -96,6 +98,7 @@ export const NewsletterForm = () => {
           _before={{
             content: "' '",
             zIndex: -1,
+            display: ['none', 'block'],
             position: 'absolute',
             top: 0,
             right: 0,
@@ -110,6 +113,7 @@ export const NewsletterForm = () => {
           _after={{
             content: "' '",
             zIndex: -1,
+            display: ['none', 'block'],
             position: 'absolute',
             top: 0,
             right: 0,

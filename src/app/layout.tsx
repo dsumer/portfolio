@@ -4,7 +4,6 @@ import { Toaster } from 'react-hot-toast';
 import { Provider as BalancerProvider } from 'react-wrap-balancer';
 import { styled } from 'styled-system/jsx';
 import { Footer } from '../components/footer';
-import { LayoutWrapper } from '../components/layout-wrapper';
 import { Navigation } from '../components/navigation';
 import { Providers } from '../components/providers';
 import { websiteUrl } from '../consts/common';
@@ -61,8 +60,8 @@ export default function RootLayout({
         <BalancerProvider>
           <Providers>
             <Navigation />
-            <styled.main flexGrow={1} my={8}>
-              <LayoutWrapper>{children}</LayoutWrapper>
+            <styled.main display="flex" flexDir="column" flexGrow={1} my={8} gap={[6, 7, 10]}>
+              {children}
             </styled.main>
             <Footer />
             <Toaster position="bottom-center" toastOptions={{ duration: 5000 }} />
