@@ -60,7 +60,7 @@ export default function RootLayout({
         <BalancerProvider>
           <Providers>
             <Navigation />
-            <styled.main display="flex" flexDir="column" flexGrow={1} my={8} gap={[6, 7, 10]}>
+            <styled.main display="flex" flexDir="column" flexGrow={1} my={8} gap={[12, 14, 16]}>
               {children}
             </styled.main>
             <Footer />
