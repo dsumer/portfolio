@@ -10,7 +10,7 @@ import { Link } from './src/components/common/link';
 import { SyntaxHighlightedCode } from './src/components/syntax-highlighted-code';
 
 const CODE_FONT_FAMILY = 'SFMono-Regular, Menlo, Monaco, Consolas, monospace';
-const DEFAULT_FONTSIZE = { base: '18px', sm: '21px' };
+const DEFAULT_FONTSIZE = '1.35em';
 const LINK_HOVER_STATE = {
   bg: { base: 'blue.100', _dark: 'purple.800' },
   color: { base: 'blue.700', _dark: 'purple.200' },
@@ -50,17 +50,23 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       );
     },
     h1: ({ children, ref, ...props }) => (
-      <styled.h1 fontSize="5xl" lineHeight="1.25em" fontWeight="medium" css={{ '& a': { display: 'none' } }} {...props}>
+      <styled.h1
+        fontSize={{ base: '2.5em', sm: '3em', md: '3.25em' }}
+        lineHeight="1.25em"
+        fontWeight="medium"
+        css={{ '& a': { display: 'none' } }}
+        {...props}
+      >
         <Balancer>{children}</Balancer>
       </styled.h1>
     ),
     h2: ({ children, ref, ...props }) => (
       <styled.h2
         pos="relative"
-        fontSize="3xl"
+        fontSize="1.85em"
         lineHeight="1.25em"
         fontWeight="medium"
-        mt={24}
+        mt="2.5em"
         css={HEADING_LINK_PROPS}
         {...props}
       >
@@ -70,10 +76,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h3: ({ children, ref, ...props }) => (
       <styled.h3
         pos="relative"
-        fontSize="2xl"
+        fontSize="1.5em"
         lineHeight="1.25em"
         fontWeight="medium"
-        mt={16}
+        mt="2.3em"
         css={HEADING_LINK_PROPS}
         {...props}
       >
@@ -83,10 +89,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h4: ({ children, ref, ...props }) => (
       <styled.h4
         pos="relative"
-        fontSize="23px"
+        fontSize="1.4em"
         lineHeight="1.25em"
         fontWeight="medium"
-        mt={16}
+        mt="2.7em"
         css={HEADING_LINK_PROPS}
         {...props}
       >
@@ -146,10 +152,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     pre: ({ children, ref, ...props }) => {
       return (
         <styled.pre
-          fontSize={{ base: '16px', sm: '18px' }}
+          fontSize="1.1em"
           mt={6}
           mb={4}
-          p={6}
+          p={4}
           bg={{ base: 'lightGray', _dark: '#27303f' }}
           border="1px solid"
           borderColor={{ base: 'gray.300', _dark: 'gray.600' }}
@@ -178,7 +184,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
       return (
         <styled.code
-          fontSize={{ base: '16px', sm: '18px' }}
+          fontSize="0.8em"
           my={-1}
           p={1}
           bg={{ base: 'lightGray', _dark: '#27303f' }}
