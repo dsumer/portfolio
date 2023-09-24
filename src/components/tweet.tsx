@@ -1,8 +1,9 @@
+/* eslint-disable jsx-a11y/alt-text */
 import Image from 'next/image';
-import { Tweet as _Tweet, TweetComponents } from 'react-tweet';
+import { Tweet as _Tweet, TwitterComponents } from 'react-tweet';
 import { styled } from 'styled-system/jsx';
 
-const components: TweetComponents = {
+const components: TwitterComponents = {
   AvatarImg: ({ src, ...props }) => <Image {...props} src={src.replace('_normal', '')} />,
   MediaImg: (props) => <Image {...props} fill unoptimized />,
 };

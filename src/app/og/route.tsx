@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from 'next/server';
 import { ARTICLES } from '../../consts/articles';
 import { websiteUrl } from '../../consts/common';
