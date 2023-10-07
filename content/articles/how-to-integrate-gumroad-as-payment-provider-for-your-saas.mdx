@@ -1,24 +1,8 @@
-import { getOgImageUrl } from '../util';
-
-export const slug = 'how-to-integrate-gumroad-as-payment-provider-for-your-saas';
-
-export const metadata = {
-  title: 'How to integrate Gumroad as a payment provider for your SaaS',
-  description:
-    'You want to concentrate on getting the MVP up and running instead of spending hours integrating a payment provider? Check out this blog post ✌️',
-  openGraph: {
-    type: 'article',
-    publishedTime: '2021-06-30T00:00:00.000Z',
-    authors: ['Dominik Sumer'],
-    images: [getOgImageUrl(slug)],
-  },
-};
-
-# {metadata.title}
-
-<BlogMetaInfo date={metadata.openGraph.publishedTime} />
-
-<BlogCoverImage slug={slug} />
+---
+title: How to integrate Gumroad as a payment provider for your SaaS
+date: 2021-06-30
+description: You want to concentrate on getting the MVP up and running instead of spending hours integrating a payment provider? Check out this blog post ✌️
+---
 
 Maybe you’ve read my article about [Stripe and EU VAT](/blog/stripe-checkout-eu-vat) (which thankfully is deprecated because of the release of [Stripe Tax](https://stripe.com/at/tax)) if you wanted to integrate a payment provider for your SaaS. And maybe you also thought: why does it have to be so complicated?
 

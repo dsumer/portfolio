@@ -1,24 +1,8 @@
-import { getOgImageUrl } from '../util';
-
-export const slug = 'how-to-use-react-to-generate-og-images';
-
-export const metadata = {
-  title: 'How to use React to generate your own OpenGraph images',
-  description:
-    "Let's use the power of React together with Puppeteer / Playwright to style and generate dynamic images on the fly.",
-  openGraph: {
-    type: 'article',
-    publishedTime: '2021-07-31T00:00:00.000Z',
-    authors: ['Dominik Sumer'],
-    images: [getOgImageUrl(slug)],
-  },
-};
-
-# {metadata.title}
-
-<BlogMetaInfo date={metadata.openGraph.publishedTime} />
-
-<BlogCoverImage slug={slug} />
+---
+title: How to use React to generate your own OpenGraph images
+date: 2021-07-31
+description: Let's use the power of React together with Puppeteer / Playwright to style and generate dynamic images on the fly.
+---
 
 > In the meanwhile, Vercel [released a great library](https://github.com/vercel/satori) which makes the process of generating OG images even easier and even less peformance heavy, as it doesn't require a headless browser 😄
 

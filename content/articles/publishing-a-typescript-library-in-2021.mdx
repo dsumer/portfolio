@@ -1,23 +1,8 @@
-import { getOgImageUrl } from '../util';
-
-export const slug = 'publishing-a-typescript-library-in-2021';
-
-export const metadata = {
-  title: 'Publishing a TypeScript library in 2021',
-  description: 'How to make your life easier by using TSDX to publish your next TypeScript library.',
-  openGraph: {
-    type: 'article',
-    publishedTime: '2021-05-31T00:00:00.000Z',
-    authors: ['Dominik Sumer'],
-    images: [getOgImageUrl(slug)],
-  },
-};
-
-# {metadata.title}
-
-<BlogMetaInfo date={metadata.openGraph.publishedTime} />
-
-<BlogCoverImage slug={slug} />
+---
+title: Publishing a TypeScript library in 2021
+date: 2021-05-31
+description: How to make your life easier by using TSDX to publish your next TypeScript library.
+---
 
 The last time I wanted to publish a npm package was in 2018. It was a React library which provided Components for creating Forms. It wasn’t straight forward to publish such a library back then. There were so many things to handle on your own, especially when it came to TypeScript.
 

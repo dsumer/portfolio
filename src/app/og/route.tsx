@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
+import { allArticles } from 'contentlayer/generated';
 import { ImageResponse } from 'next/server';
-import { ARTICLES } from '../../consts/articles';
 import { websiteUrl } from '../../consts/common';
 
 export const runtime = 'edge';
@@ -17,7 +17,8 @@ export async function GET(request: Request) {
     }
 
     const slug = searchParams.get('slug')!;
-    const article = ARTICLES[slug];
+    const article = allArticles.find((article) => article.slug === slug);
+    if (!article) throw new Error(`Article not found for slug: ${slug}`);
 
     return new ImageResponse(
       (

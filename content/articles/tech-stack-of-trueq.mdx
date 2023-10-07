@@ -1,24 +1,8 @@
-import { getOgImageUrl } from '../util';
-
-export const slug = 'tech-stack-of-trueq';
-
-export const metadata = {
-  title: 'The tech stack of our first SaaS and what we regret',
-  description:
-    'I describe the tech stack and how we do the deployment of our first SaaS called TrueQ. Additionally I explain what we regret about our decisions / would to differently nowadays.',
-  openGraph: {
-    type: 'article',
-    publishedTime: '2021-03-31T00:00:00.000Z',
-    authors: ['Dominik Sumer'],
-    images: [getOgImageUrl(slug)],
-  },
-};
-
-# {metadata.title}
-
-<BlogMetaInfo date={metadata.openGraph.publishedTime} />
-
-<BlogCoverImage slug={slug} />
+---
+title: The tech stack of our first SaaS and what we regret
+date: 2021-03-31
+description: I describe the tech stack and how we do the deployment of our first SaaS called TrueQ. Additionally I explain what we regret about our decisions / would to differently nowadays.
+---
 
 It was in March 2020 when [Anki](https://twitter.com/AnkiCodes) and I decided to tackle a new project together. After years of abandoning projects in our free time, we were dedicated to spend some time and get this done. I won’t dive deep into this journey, as we‘ve already described it in [this blog post](https://trueq.io/our-journey) if you’re interested. 😄
 

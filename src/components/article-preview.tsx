@@ -1,3 +1,4 @@
+import { Article } from 'contentlayer/generated';
 import Balancer from 'react-wrap-balancer';
 import { Flex, LinkBox, styled } from 'styled-system/jsx';
 import { Image } from './common/image';
@@ -5,12 +6,10 @@ import { LinkOverlay } from './common/link-overlay';
 import { Text } from './common/text';
 
 interface Props {
-  title: string;
-  description: string;
-  slug: string;
+  article: Article;
 }
 
-export const ArticlePreview = ({ title, slug, description }: Props) => {
+export const ArticlePreview = ({ article }: Props) => {
   return (
     <LinkBox
       display="flex"
@@ -29,7 +28,7 @@ export const ArticlePreview = ({ title, slug, description }: Props) => {
     >
       <Image
         alt="Thumbnail"
-        src={`/images/blog/${slug}/thumbnail.jpg`}
+        src={`/images${article.url}/thumbnail.jpg`}
         width={130}
         height={130}
         rounded="md"
@@ -39,12 +38,12 @@ export const ArticlePreview = ({ title, slug, description }: Props) => {
       <Flex direction="column">
         <styled.h3 fontSize="lg" fontWeight="semibold" mb={2}>
           <Balancer>
-            <LinkOverlay href={'/blog/' + slug} textDecoration="none" _hover={{ textDecoration: 'none' }}>
-              {title}
+            <LinkOverlay href={article.url} textDecoration="none" _hover={{ textDecoration: 'none' }}>
+              {article.title}
             </LinkOverlay>
           </Balancer>
         </styled.h3>
-        <Text fontSize="sm">{description}</Text>
+        <Text fontSize="sm">{article.description}</Text>
       </Flex>
     </LinkBox>
   );

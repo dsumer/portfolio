@@ -1,24 +1,8 @@
-import { getOgImageUrl } from '../util';
-
-export const slug = 'stripe-checkout-eu-vat';
-
-export const metadata = {
-  title: 'A guide to make your Stripe Checkout EU VAT compliant',
-  description:
-    'In this blog post I am covering the different scenarios which need to be considered when selling digital goods inside the EU and how to implement them with Stripe Checkout.',
-  openGraph: {
-    type: 'article',
-    publishedTime: '2021-01-31T00:00:00.000Z',
-    authors: ['Dominik Sumer'],
-    images: [getOgImageUrl(slug)],
-  },
-};
-
-# {metadata.title}
-
-<BlogMetaInfo date={metadata.openGraph.publishedTime} />
-
-<BlogCoverImage slug={slug} />
+---
+title: A guide to make your Stripe Checkout EU VAT compliant
+date: 2021-01-31
+description: In this blog post I am covering the different scenarios which need to be considered when selling digital goods inside the EU and how to implement them with Stripe Checkout.
+---
 
 > As Stripe released their new Tax feature, this blog post is probably deprecated for most of us. Checkout [Stripe Tax](https://stripe.com/at/tax) to make your life a lot easier. :)
 
