@@ -137,6 +137,8 @@ export const mdxComponents: MDXComponents = {
   pre: ({ children, ref, ...props }) => {
     return (
       <styled.pre
+        className="group"
+        pos="relative"
         fontSize="1.1em"
         mt={6}
         mb={4}

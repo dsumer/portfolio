@@ -1,6 +1,7 @@
 import { use } from 'react';
 import * as shiki from 'shiki';
 import { styled } from 'styled-system/jsx';
+import { CopyCodeButton } from './copy-code-button';
 
 interface Props {
   children: string;
@@ -17,5 +18,10 @@ export const SyntaxHighlightedCode = ({ className = '', children }: Props) => {
     .replace('<code>', '')
     .replace(/<\/code>$/gi, '');
 
-  return <styled.code dangerouslySetInnerHTML={{ __html: highlightedCode }} />;
+  return (
+    <>
+      <styled.code dangerouslySetInnerHTML={{ __html: highlightedCode }} />
+      <CopyCodeButton code={children} />
+    </>
+  );
 };
