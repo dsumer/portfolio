@@ -1,5 +1,5 @@
 import { Analytics } from '@vercel/analytics/react';
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import { Toaster } from 'react-hot-toast';
 import { Provider as BalancerProvider } from 'react-wrap-balancer';
 import { styled } from 'styled-system/jsx';
@@ -9,11 +9,15 @@ import { Providers } from '../components/providers';
 import { websiteUrl } from '../consts/common';
 import './global.css';
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(websiteUrl),
   title: { template: '%s | Dominik Sumer', default: 'Dominik Sumer' },
   description: 'I love to bring my own ideas to life and strive to make a living from them.',
-  viewport: 'width=device-width, initial-scale=1',
   icons: [
     {
       rel: 'icon',
