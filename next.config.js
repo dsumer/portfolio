@@ -10,6 +10,19 @@ const nextConfig = {
       { protocol: 'https', hostname: 'abs.twimg.com' },
     ],
   },
+
+  async rewrites() {
+    return [
+      {
+        source: '/_v_script.js',
+        destination: 'https://cdn.vemetric.com/0.0.6/main.js',
+      },
+      {
+        source: '/_v/:slug',
+        destination: 'https://hub.vemetric.com/:slug',
+      },
+    ];
+  },
 };
 
 module.exports = withContentlayer(nextConfig);

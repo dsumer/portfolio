@@ -1,5 +1,6 @@
 import { Analytics } from '@vercel/analytics/react';
 import { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import { Toaster } from 'react-hot-toast';
 import { Provider as BalancerProvider } from 'react-wrap-balancer';
 import { styled } from 'styled-system/jsx';
@@ -61,6 +62,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <Script async src="/_v_script.js" data-host="/_v" />
       <body>
         <BalancerProvider>
           <Providers>
