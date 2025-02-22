@@ -1,4 +1,3 @@
-import { Analytics } from '@vercel/analytics/react';
 import { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { Toaster } from 'react-hot-toast';
@@ -74,7 +73,6 @@ export default function RootLayout({
             <Toaster position="bottom-center" toastOptions={{ duration: 5000 }} />
           </Providers>
         </BalancerProvider>
-        <Analytics />
       </body>
     </html>
   );
