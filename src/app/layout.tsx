@@ -62,7 +62,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Script async src="/_v_script.js" data-host="/_v" />
+      <Script async src="/_v_script.js" data-host="/_v" data-token="EJMTB0j3mwXkLQao-GcQm" />
       <body>
         <BalancerProvider>
           <Providers>
