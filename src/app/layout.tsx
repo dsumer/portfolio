@@ -61,7 +61,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Script async src="/_v_script.js" data-host="/_v" data-token="EJMTB0j3mwXkLQao-GcQm" />
+      <Script
+        async
+        src="https://cdn.vemetric.com/0.0.7/main.js"
+        data-token="EJMTB0j3mwXkLQao-GcQm"
+        data-allow-cookies="true"
+      />
       <body>
         <BalancerProvider>
           <Providers>
