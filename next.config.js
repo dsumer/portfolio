@@ -15,7 +15,7 @@ const nextConfig = {
     return [
       {
         source: '/_v_script.js',
-        destination: 'https://cdn.vemetric.com/0.0.7/main.js',
+        destination: 'https://cdn.vemetric.com/main.js',
       },
       {
         source: '/_v/:slug',
