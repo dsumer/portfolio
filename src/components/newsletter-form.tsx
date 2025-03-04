@@ -172,6 +172,8 @@ export const NewsletterForm = () => {
               justifyContent="center"
               disabled={state !== 'initial'}
               type={state === 'success' ? 'button' : 'submit'}
+              data-vmtrc="NewsletterSubmit"
+              data-vmtrc-type="button"
             >
               {state === 'success' ? <FaCheck /> : 'Submit'}
             </styled.button>
