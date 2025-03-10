@@ -61,7 +61,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Script async src="/_v_script.js" data-host="/_v" data-token="EJMTB0j3mwXkLQao-GcQm" />
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.vmtrcq = window.vmtrcq || [];window.vmtrc = window.vmtrc || ((...args) => window.vmtrcq.push(args));`,
+          }}
+        />
+        <Script defer src="/_v_script.js" data-host="/_v" data-token="EJMTB0j3mwXkLQao-GcQm" />
+      </head>
       <body>
         <BalancerProvider>
           <Providers>
