@@ -13,6 +13,7 @@ import { SnappifyLogo } from '../components/snappify-logo';
 import { Tweet } from '../components/tweet';
 import { WavingHand } from '../components/waving-hand';
 import { PINNED_TWEET_ID } from '../consts/common';
+import { VemetricLogo } from 'src/components/vemetric-logo';
 
 export default async function Page() {
   const articles = allArticles.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
@@ -56,30 +57,54 @@ export default async function Page() {
             </Text>
             <Tweet id={PINNED_TWEET_ID} />
           </Flex>
-          <Flex direction="column" align="center" gap={5}>
+          <Flex direction="column" align="center" gap={10}>
             <Text fontSize="lg" fontWeight="semibold">
               What I&apos;m currently working on
             </Text>
-            <LinkBox
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              rounded="lg"
-              maxW="100%"
-              bg="linear-gradient(125.53deg, #FF9979 0%, #811FFF 100%);"
-              py={5}
-              px={8}
-              color="white"
-              transition="all .3s"
-              _hover={{ transform: 'scale(1.025)' }}
-              _active={{ transform: 'scale(1)' }}
-            >
-              <SnappifyLogo />
-              <LinkOverlay href="https://snappify.com" target="_blank" rel="noopener" />
-            </LinkBox>
-            <Text fontWeight="500" maxW="350px" textAlign="center">
-              snappify is a powerful design tool enabling developers to create stunning presentations.
-            </Text>
+            <Flex direction="column" align="center" gap={3}>
+              <LinkBox
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                rounded="lg"
+                maxW="100%"
+                bg="linear-gradient(125.53deg, #FF9979 0%, #811FFF 100%);"
+                py={5}
+                px={8}
+                color="white"
+                transition="all .3s"
+                _hover={{ transform: 'scale(1.025)' }}
+                _active={{ transform: 'scale(1)' }}
+              >
+                <SnappifyLogo />
+                <LinkOverlay href="https://snappify.com" target="_blank" />
+              </LinkBox>
+              <Text fontWeight="500" maxW="350px" textAlign="center">
+                snappify is a powerful design tool enabling developers to create stunning presentations.
+              </Text>
+            </Flex>
+            <Flex direction="column" align="center" gap={3}>
+              <LinkBox
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                rounded="lg"
+                maxW="100%"
+                bg="#313247"
+                py={5}
+                px={8}
+                color="white"
+                transition="all .3s"
+                _hover={{ transform: 'scale(1.025)' }}
+                _active={{ transform: 'scale(1)' }}
+              >
+                <VemetricLogo />
+                <LinkOverlay href="https://vemetric.com" target="_blank" />
+              </LinkBox>
+              <Text fontWeight="500" maxW="350px" textAlign="center">
+                Vemetric aims to provide you with simple, yet powerful analytics for your product / website.
+              </Text>
+            </Flex>
           </Flex>
         </Box>
       </LayoutWrapper>
