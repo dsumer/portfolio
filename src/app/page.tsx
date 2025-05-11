@@ -1,7 +1,7 @@
 import { allArticles } from 'contentlayer/generated';
 import { compareDesc } from 'date-fns';
 import { Box, Flex, LinkBox, LinkOverlay, styled } from 'styled-system/jsx';
-import Avatar from '../../public/images/avatar.png';
+import Avatar from '../../public/images/avatar2.png';
 import { ArticlePreview } from '../components/article-preview';
 import { Divider } from '../components/common/divider';
 import { Image } from '../components/common/image';
@@ -36,8 +36,9 @@ export default async function Page() {
             alt="Avatar of Dominik Sumer"
             width={200}
             height={200}
-            filter="drop-shadow(0 0 20px rgba(0,0,0,0.14))"
+            filter="drop-shadow(0 0 10px rgba(0,0,0,0.14))"
             transform="translateZ(0)"
+            borderRadius="lg"
             placeholder="blur"
           />
         </Flex>

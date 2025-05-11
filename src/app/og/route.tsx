@@ -116,7 +116,7 @@ export async function GET(request: Request) {
             <img
               width={180}
               height={180}
-              src={`${websiteUrl}/images/avatar.png`}
+              src={`${websiteUrl}/images/avatar2.png`}
               style={{ filter: 'drop-shadow(0 0 20px rgba(0,0,0,0.14))' }}
             />
           </div>
