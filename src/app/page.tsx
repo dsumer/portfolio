@@ -14,6 +14,7 @@ import { Tweet } from '../components/tweet';
 import { WavingHand } from '../components/waving-hand';
 import { PINNED_TWEET_ID } from '../consts/common';
 import { VemetricLogo } from 'src/components/vemetric-logo';
+import { TbBrandBluesky, TbBrandLinkedin, TbBrandThreads, TbBrandX } from 'react-icons/tb';
 
 export default async function Page() {
   const articles = allArticles.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
@@ -29,6 +30,20 @@ export default async function Page() {
             <Text fontSize={['20px', '24px']}>
               I love to bring my own ideas to life and strive to make a living from them.
             </Text>
+            <Flex mt={4} gap={3} color="gray.600">
+              <Link href="https://x.com/dominiksumer" isExternal>
+                <TbBrandX size={20} />
+              </Link>
+              <Link href="https://bsky.app/profile/dominiksumer.com" isExternal>
+                <TbBrandBluesky size={20} />
+              </Link>
+              <Link href="https://www.linkedin.com/in/dominik-sumer/" isExternal>
+                <TbBrandLinkedin size={20} />
+              </Link>
+              <Link href="https://www.threads.com/@dominik.sumer" isExternal>
+                <TbBrandThreads size={20} />
+              </Link>
+            </Flex>
           </Box>
           <Image
             priority
