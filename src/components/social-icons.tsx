@@ -4,7 +4,7 @@ import { Link } from './common/link';
 
 export const SocialIcons = (props: FlexProps) => {
   return (
-    <Flex align="center" mt={4} gap={3} color="gray.600">
+    <Flex align="center" mt={4} gap={3} color="gray.600" _dark={{ color: 'gray.400' }}>
       <Link href="https://x.com/dominiksumer" isExternal>
         <TbBrandX size={20} />
       </Link>

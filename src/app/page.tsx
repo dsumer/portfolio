@@ -30,7 +30,7 @@ export default async function Page() {
             <Text fontSize={['20px', '24px']}>
               I love to bring my own ideas to life and strive to make a living from them.
             </Text>
-            <Flex align="center" mt={4} gap={3} color="gray.600">
+            <Flex align="center" mt={4} gap={3} color="gray.600" _dark={{ color: 'gray.400' }}>
               <Link href="https://x.com/dominiksumer" isExternal>
                 <TbBrandX size={20} />
               </Link>
