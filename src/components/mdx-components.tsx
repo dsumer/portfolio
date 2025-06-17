@@ -8,7 +8,7 @@ import { Link } from './common/link';
 import { SyntaxHighlightedCode } from './syntax-highlighted-code';
 
 const CODE_FONT_FAMILY = 'SFMono-Regular, Menlo, Monaco, Consolas, monospace';
-const DEFAULT_FONTSIZE = '1.35em';
+const DEFAULT_FONTSIZE = '1.2em';
 const LINK_HOVER_STATE = {
   bg: { base: 'blue.100', _dark: 'purple.800' },
   color: { base: 'blue.700', _dark: 'purple.200' },
@@ -48,7 +48,7 @@ export const mdxComponents: MDXComponents = {
   h2: ({ children, ref, ...props }) => (
     <styled.h2
       pos="relative"
-      fontSize="1.85em"
+      fontSize="1.6em"
       lineHeight="1.25em"
       fontWeight="medium"
       mt="2.5em"
@@ -61,7 +61,7 @@ export const mdxComponents: MDXComponents = {
   h3: ({ children, ref, ...props }) => (
     <styled.h3
       pos="relative"
-      fontSize="1.5em"
+      fontSize="1.45em"
       lineHeight="1.25em"
       fontWeight="medium"
       mt="2.3em"
@@ -74,7 +74,7 @@ export const mdxComponents: MDXComponents = {
   h4: ({ children, ref, ...props }) => (
     <styled.h4
       pos="relative"
-      fontSize="1.4em"
+      fontSize="1.35em"
       lineHeight="1.25em"
       fontWeight="medium"
       mt="2.7em"
@@ -139,10 +139,10 @@ export const mdxComponents: MDXComponents = {
       <styled.pre
         className="group"
         pos="relative"
-        fontSize="1.1em"
-        mt={6}
-        mb={4}
-        p={4}
+        fontSize="1em"
+        mt={5}
+        mb={3}
+        p={3.5}
         bg={{ base: 'lightGray', _dark: '#27303f' }}
         border="1px solid"
         borderColor={{ base: 'gray.300', _dark: 'gray.600' }}
@@ -171,7 +171,7 @@ export const mdxComponents: MDXComponents = {
 
     return (
       <styled.code
-        fontSize="0.8em"
+        fontSize="0.85em"
         my={-1}
         p={1}
         bg={{ base: 'lightGray', _dark: '#27303f' }}

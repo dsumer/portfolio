@@ -92,6 +92,8 @@ export const NewsletterForm = () => {
           rounded="lg"
           textAlign="center"
           bg="linear-gradient(120deg, #f6d365 0%, #fda085 100%)"
+          outline="1.5px solid"
+          outlineColor={{ base: 'white', _dark: 'gray.900' }}
           color="gray.900"
           py={10}
           px={[8, 8, 16]}

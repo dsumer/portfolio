@@ -7,7 +7,7 @@ interface Props {
 
 export const BlogCoverImage = ({ slug }: Props) => {
   return (
-    <Box maxW="750px" my={8}>
+    <Box maxW="750px" my={4}>
       <Image
         src={`/images/blog/${slug}/banner.jpg`}
         alt="Blog Post Cover Image"
@@ -16,6 +16,7 @@ export const BlogCoverImage = ({ slug }: Props) => {
         rounded="10px"
         priority
         bg="linear-gradient(140deg, #8336d29c, transparent)"
+        boxShadow="sm"
       />
     </Box>
   );

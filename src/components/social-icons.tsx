@@ -1,8 +1,8 @@
 import { TbBrandBluesky, TbBrandGithub, TbBrandLinkedin, TbBrandThreads, TbBrandX } from 'react-icons/tb';
-import { Flex, FlexProps } from 'styled-system/jsx';
+import { Flex } from 'styled-system/jsx';
 import { Link } from './common/link';
 
-export const SocialIcons = (props: FlexProps) => {
+export const SocialIcons = () => {
   return (
     <Flex align="center" mt={4} gap={3} color="gray.600" _dark={{ color: 'gray.400' }}>
       <Link href="https://x.com/dominiksumer" isExternal>

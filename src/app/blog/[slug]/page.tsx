@@ -35,17 +35,17 @@ export default function Page({ params }: { params: { slug: string } }) {
 
   // TODO: define common footer for each blog post
   return (
-    <LayoutWrapper fontSize={['14px', '15px', '16px']}>
+    <LayoutWrapper fontSize={['15px', '16px']}>
       <styled.h1
-        fontSize={{ base: '2.5em', sm: '3em', md: '3.25em' }}
+        fontSize={{ base: '2em', md: '2.2em', lg: '2.5em' }}
         lineHeight="1.25em"
         fontWeight="medium"
         css={{ '& a': { display: 'none' } }}
       >
         <Balancer>{article.title}</Balancer>
       </styled.h1>
-      <BlogMetaInfo date={article.date} />
       <BlogCoverImage slug={params.slug} />
+      <BlogMetaInfo date={article.date} />
       <MDXContent components={mdxComponents} />
     </LayoutWrapper>
   );
