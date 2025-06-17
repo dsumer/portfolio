@@ -14,7 +14,7 @@ export function Footer() {
             seriouscode.io
           </Link>
         </Flex>
-        <SocialIcons mt={4} />
+        <SocialIcons />
       </styled.footer>
     </>
   );
